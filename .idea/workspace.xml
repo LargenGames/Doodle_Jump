@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7643e9d8-19b2-4280-a6c9-4af7c78298b7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/k.mp3" afterDir="false" />
+    <list default="true" id="7643e9d8-19b2-4280-a6c9-4af7c78298b7" name="Changes" comment="Beta.0.2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -63,6 +62,14 @@
       <option name="presentableId" value="Default" />
       <updated>1691145754693</updated>
     </task>
+    <task id="LOCAL-00001" summary="Beta.0.2">
+      <created>1691659020865</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1691659020865</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -75,6 +82,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Beta.0.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Beta.0.2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

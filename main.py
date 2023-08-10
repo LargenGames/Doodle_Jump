@@ -16,6 +16,7 @@ canvas = Canvas(tk, width=800, height=600, bg='#302655')
 canvas.pack()
 
 pls = []
+fpls = []
 score = 1
 x=100
 y=500
@@ -31,6 +32,28 @@ image = canvas.create_image(0, 0, anchor='nw',image=img)
 player = canvas.create_oval(x-r,y-r,x+r,y+r,fill="red",width=2,outline="black")
 
 
+def f_platform():
+    global fpls
+    x = random.randint(200, 600 - 120)
+    y = 10
+    w = 120
+    h = 12
+    color = 'khaki1'
+    fplatform = canvas.create_rectangle(x, y, x + w, y + h, fill=color, width=2, outline="white")
+    fpls.append(fplatform)
+    canvas.after(random.randint(23000, 60000), f_platform)
+
+
+def move_fplatform():
+    global fpls, still,yv,xv, active
+    x, y, _, _, = canvas.coords(player)
+    for fplatform in fpls:
+        canvas.move(fplatform,0,2)
+        if fplatform_check(fplatform):
+            break
+        px, py, _, _, = canvas.coords(fplatform)
+
+
 def new_platfom():
     global pls, score
     if active:
@@ -40,7 +63,7 @@ def new_platfom():
     y = 10
     w = 120
     h = 12
-    color = "khaki2"
+    color = "khaki3"
     platform = canvas.create_rectangle(x, y, x+w, y+h, fill=color, width=2, outline="white")
     pls.append(platform)
     canvas.after(1750, new_platfom)
@@ -63,6 +86,16 @@ def move_platform():
                     yv=0
                     canvas.coords(player, px - r + 60, py - r - 22, px + r + 60, py + r - 22)
                     still=True
+
+
+def fplatform_check(fplatform):
+    global fpls
+    px, py, _, _ = canvas.coords(fplatform)
+    if py > 620:
+        fpls.remove(fplatform)
+        print('Платформа ф удалена')
+        return True
+    return False
 
 
 def platform_check(platform):
@@ -106,6 +139,7 @@ def player_move():
     if y >= 600 - 2 * r and active:
         canvas.delete(player)
         canvas.delete(*pls)
+        canvas.delete(*fpls)
         return True
 
     canvas.move(player, xv, yv)
@@ -124,8 +158,10 @@ def click(event):
 canvas.bind_all("<1>",click)
 
 new_platfom()
+f_platform()
 
 while True:
+    move_fplatform()
     move_platform()
     lose = player_move()
     if lose:
